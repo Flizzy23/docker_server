@@ -53,7 +53,13 @@ resource "aws_security_group" "ec2_security_group" {
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
-
+   ingress {
+    description      = "http proxy access"
+    from_port        = 8085
+    to_port          = 8085
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
   # allow access on port 22
   ingress {
     description      = "ssh access"
